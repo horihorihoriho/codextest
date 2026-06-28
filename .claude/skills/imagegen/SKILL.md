@@ -1,6 +1,6 @@
 ---
 name: imagegen
-description: Generate image files from natural-language prompts inside Claude Code. Two modes — (A) OpenAI Images API when OPENAI_API_KEY is set and api.openai.com is reachable, producing photorealistic PNG via gpt-image-1; (B) native SVG fallback written by Claude Code itself, producing vector illustrations with optional rasterization to PNG. Use when the user needs visual assets saved to disk such as icons, hero illustrations, banners, OG images, infographics, feature cards, or placeholder images. Triggers — "generate image", "create illustration", "make an icon", "create a banner", "OG image", "imagegen", "GPT Image", "画像を作って", "イラスト生成", "アイコン作成", "バナー作成", or whenever the user wants a visual file written to the local filesystem. Do NOT use for image analysis or screenshot review.
+description: Generate image files from natural-language prompts inside Claude Code. Two modes — (A) OpenAI Images API when OPENAI_API_KEY is set and api.openai.com is reachable, producing photorealistic PNG/JPEG/WebP via gpt-image-2 (released 2026-04-21); (B) native SVG fallback written by Claude Code itself, producing vector illustrations with optional rasterization to PNG. Use when the user needs visual assets saved to disk such as icons, hero illustrations, banners, OG images, infographics, feature cards, or placeholder images. Triggers — "generate image", "create illustration", "make an icon", "create a banner", "OG image", "imagegen", "GPT Image 2", "gpt-image-2", "画像を作って", "イラスト生成", "アイコン作成", "バナー作成", or whenever the user wants a visual file written to the local filesystem. Do NOT use for image analysis or screenshot review.
 ---
 
 # imagegen — Claude Code image generation (OpenAI + SVG fallback)
@@ -11,7 +11,7 @@ Generates images and writes them to disk from inside Claude Code. No separate CL
 
 Two modes:
 
-- **Mode A — OpenAI Images API (preferred when available).** Uses the OpenAI Images endpoint (`POST https://api.openai.com/v1/images/generations`) with model `gpt-image-1`. Requires `OPENAI_API_KEY` AND outbound HTTPS access to `api.openai.com`. Produces photorealistic raster output.
+- **Mode A — OpenAI Images API (preferred when available).** Uses the OpenAI Images endpoint (`POST https://api.openai.com/v1/images/generations`) with model `gpt-image-2` (released 2026-04-21; current snapshot `gpt-image-2-2026-04-21`). Requires `OPENAI_API_KEY` AND outbound HTTPS access to `api.openai.com`. Org Verification on the OpenAI dashboard may be required before the key can call `gpt-image-2`. Produces photorealistic raster output.
 - **Mode B — Native SVG fallback.** Claude writes the SVG directly. Always works, no API key, no network egress needed. Best for icons, flat illustrations, hero graphics, infographics.
 
 The skill **auto-selects** the mode at runtime using the preflight check below. Mode A is only used when both prerequisites pass; otherwise Mode B is used automatically and the chosen mode is reported to the user.
@@ -52,30 +52,49 @@ Whichever mode runs, extract these slots:
 
 Fill missing slots with sensible defaults. Only ask the user when the request is genuinely ambiguous.
 
-## Mode A — OpenAI Images API
+## Mode A — OpenAI Images API (gpt-image-2)
 
 ### Endpoint and request
 
 ```bash
 mkdir -p "$(dirname "$OUT")"
+# Round W and H to multiples of 16 (gpt-image-2 requirement)
+W16=$(( (W + 15) / 16 * 16 ))
+H16=$(( (H + 15) / 16 * 16 ))
+
 curl -sS https://api.openai.com/v1/images/generations \
   -H "Authorization: Bearer $OPENAI_API_KEY" \
   -H "Content-Type: application/json" \
-  -d "$(jq -n --arg p "$PROMPT" --arg s "${W}x${H}" \
-        '{model:"gpt-image-1", prompt:$p, size:$s, n:1, quality:"high"}')" \
+  -d "$(jq -n --arg p "$PROMPT" --arg s "${W16}x${H16}" --arg f "$FORMAT" \
+        '{model:"gpt-image-2", prompt:$p, size:$s, n:1, quality:"high", output_format:$f}')" \
   > /tmp/imagegen_resp.json
 
-# The response contains base64-encoded PNG in .data[0].b64_json
+# gpt-image-2 always returns base64; decode into the requested file
 jq -r '.data[0].b64_json' /tmp/imagegen_resp.json | base64 -d > "$OUT"
 ls -la "$OUT"
 ```
 
-Supported sizes (`gpt-image-1`): `1024x1024`, `1024x1536`, `1536x1024`, `auto`. For other sizes, request the nearest supported size and resize locally with `convert` / `sips`.
+Request parameters for `gpt-image-2`:
+
+| Param | Allowed values | Notes |
+|---|---|---|
+| `model` | `"gpt-image-2"` | Pin with `"gpt-image-2-2026-04-21"` if you need a stable snapshot. |
+| `prompt` | string, up to 32,000 chars | Front-load the first 50 words. |
+| `size` | arbitrary `WIDTHxHEIGHT` | Both must be **divisible by 16**. Examples: `1024x1024`, `1536x864`, `1200x624` (round 630→624). |
+| `n` | 1–10 | Default 1. |
+| `quality` | `"high"` \| `"medium"` \| `"low"` | Default `"high"` for hero/feature work; `"medium"` for batches. |
+| `output_format` | `"png"` \| `"jpeg"` \| `"webp"` | Default `"png"`. |
+| `background` | `"transparent"` \| `"opaque"` \| `"auto"` | Only meaningful with `png` / `webp`. |
+| `output_compression` | 0–100 | Only with `jpeg` / `webp`. |
+
+The response **always** contains base64 in `.data[i].b64_json` for GPT image models — there is no `url` field, regardless of which `response_format` is requested. Don't try `response_format: "url"`.
 
 If the response contains an `error` field, do NOT retry blindly:
 - `invalid_api_key` → tell the user the key is bad
+- `organization_must_be_verified` → the org needs to complete API Organization Verification in the OpenAI dashboard before `gpt-image-2` can be called
 - `rate_limit_exceeded` → wait, then retry once
 - `content_policy_violation` → rephrase the prompt
+- `model_not_found` → the key/org doesn't have `gpt-image-2` access yet; fall back to `gpt-image-1` (sizes `1024x1024` / `1024x1536` / `1536x1024` only) or to Mode B
 - Network 403 from the local agent proxy → the org egress policy blocks `api.openai.com` (see proxy README); fall back to Mode B
 
 ### Setting OPENAI_API_KEY in this environment
