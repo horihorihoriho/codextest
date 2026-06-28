@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600"
+     role="img" aria-labelledby="t d">
+  <title id="t">オンライン医療AIセミナー</title>
+  <desc id="d">ノートPCのZoom画面と参加者アイコン、医療AIロゴ。</desc>
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2540"/>
+      <stop offset="1" stop-color="#0a6cb8"/>
+    </linearGradient>
+    <linearGradient id="laptop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a3a5a"/>
+      <stop offset="1" stop-color="#0a2540"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a6cb8"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg5)"/>
+  <circle cx="650" cy="120" r="180" fill="url(#glow)"/>
+  <circle cx="120" cy="500" r="160" fill="url(#glow)"/>
+
+  <!-- decorative dots -->
+  <g fill="#5fd8c8" opacity="0.4">
+    <circle cx="80" cy="80" r="4"/>
+    <circle cx="120" cy="60" r="3"/>
+    <circle cx="720" cy="540" r="5"/>
+    <circle cx="680" cy="560" r="3"/>
+  </g>
+
+  <!-- laptop -->
+  <g transform="translate(140,140)">
+    <!-- screen -->
+    <rect x="0" y="0" width="520" height="320" rx="14" fill="url(#laptop)"/>
+    <rect x="14" y="14" width="492" height="292" rx="6" fill="url(#screen)"/>
+    <!-- zoom-like grid -->
+    <g transform="translate(40,40)">
+      <!-- person 1 -->
+      <g>
+        <rect x="0" y="0" width="200" height="120" rx="8" fill="#1a2a3a"/>
+        <circle cx="100" cy="46" r="22" fill="#f4d2b6"/>
+        <path d="M70 110 Q100 78 130 110 Z" fill="#fff"/>
+        <rect x="6" y="100" width="46" height="14" rx="3" fill="rgba(0,0,0,0.5)"/>
+        <text x="29" y="110" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="#fff">講師</text>
+        <circle cx="186" cy="14" r="4" fill="#5fd8c8"/>
+      </g>
+      <!-- person 2 -->
+      <g transform="translate(216,0)">
+        <rect x="0" y="0" width="100" height="58" rx="6" fill="#2a3a5a"/>
+        <circle cx="50" cy="24" r="12" fill="#e8b896"/>
+        <path d="M35 52 Q50 38 65 52 Z" fill="#fff"/>
+        <circle cx="92" cy="8" r="3" fill="#5fd8c8"/>
+      </g>
+      <!-- person 3 -->
+      <g transform="translate(216,62)">
+        <rect x="0" y="0" width="100" height="58" rx="6" fill="#2a3a5a"/>
+        <circle cx="50" cy="24" r="12" fill="#f4d2b6"/>
+        <path d="M35 52 Q50 38 65 52 Z" fill="#fff"/>
+        <circle cx="92" cy="8" r="3" fill="#5fd8c8"/>
+      </g>
+      <!-- person 4 -->
+      <g transform="translate(322,0)">
+        <rect x="0" y="0" width="100" height="58" rx="6" fill="#2a3a5a"/>
+        <circle cx="50" cy="24" r="12" fill="#d4a890"/>
+        <path d="M35 52 Q50 38 65 52 Z" fill="#fff"/>
+        <circle cx="92" cy="8" r="3" fill="#5fd8c8"/>
+      </g>
+      <!-- person 5 -->
+      <g transform="translate(322,62)">
+        <rect x="0" y="0" width="100" height="58" rx="6" fill="#2a3a5a"/>
+        <circle cx="50" cy="24" r="12" fill="#e8b896"/>
+        <path d="M35 52 Q50 38 65 52 Z" fill="#fff"/>
+        <circle cx="92" cy="8" r="3" fill="#5fd8c8"/>
+      </g>
+
+      <!-- slide -->
+      <g transform="translate(0,134)">
+        <rect x="0" y="0" width="422" height="80" rx="8" fill="#fff"/>
+        <text x="20" y="32" font-family="system-ui, sans-serif" font-weight="900" font-size="20" fill="#0a2540">M3デジカル × ClaudeCode</text>
+        <text x="20" y="56" font-family="system-ui, sans-serif" font-size="14" fill="#5a7a9a">医療業界特化セミナー</text>
+        <!-- mini badge -->
+        <rect x="320" y="20" width="86" height="40" rx="6" fill="#14b8a6"/>
+        <text x="363" y="46" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="16" fill="#fff">LIVE</text>
+      </g>
+
+      <!-- bottom toolbar -->
+      <g transform="translate(80,232)">
+        <circle cx="0" cy="10" r="14" fill="#1a2a3a"/>
+        <rect x="-8" y="6" width="16" height="8" rx="2" fill="#fff"/>
+        <circle cx="40" cy="10" r="14" fill="#1a2a3a"/>
+        <circle cx="40" cy="10" r="6" fill="#fff"/>
+        <circle cx="80" cy="10" r="14" fill="#e74c3c"/>
+        <rect x="73" y="6" width="14" height="8" rx="2" fill="#fff"/>
+        <circle cx="180" cy="10" r="14" fill="#1a2a3a"/>
+        <path d="M174 4 L186 16 M186 4 L174 16" stroke="#fff" stroke-width="2"/>
+        <circle cx="220" cy="10" r="14" fill="#14b8a6"/>
+        <text x="220" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="14" fill="#fff">＋</text>
+      </g>
+    </g>
+    <!-- laptop base -->
+    <path d="M-30 320 L550 320 L530 344 L-10 344 Z" fill="#1a3a5a"/>
+    <rect x="200" y="320" width="120" height="6" rx="3" fill="#0a2540"/>
+  </g>
+
+  <!-- chat bubbles around -->
+  <g transform="translate(36,180)">
+    <rect x="0" y="0" width="110" height="40" rx="20" fill="#fff" opacity="0.95"/>
+    <text x="56" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#0a2540">👋 こんにちは</text>
+  </g>
+  <g transform="translate(670,320)">
+    <rect x="0" y="0" width="110" height="40" rx="20" fill="#fff" opacity="0.95"/>
+    <text x="56" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#0a2540">質問あります</text>
+  </g>
+  <g transform="translate(36,440)">
+    <rect x="0" y="0" width="110" height="40" rx="20" fill="#fff" opacity="0.95"/>
+    <text x="56" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="700" font-size="13" fill="#0a2540">参加します！</text>
+  </g>
+</svg>

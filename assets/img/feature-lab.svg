@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400"
+     role="img" aria-labelledby="t d">
+  <title id="t">検査データ自動取込みと報告書作成</title>
+  <desc id="d">試験管・顕微鏡と検査レポートのフラットイラスト。</desc>
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f4fb"/>
+      <stop offset="1" stop-color="#d4edf7"/>
+    </linearGradient>
+    <linearGradient id="tube1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5fd8c8"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <linearGradient id="tube2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fbde8"/>
+      <stop offset="1" stop-color="#0a6cb8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg3)"/>
+  <circle cx="100" cy="80" r="60" fill="#14b8a6" opacity="0.12"/>
+  <circle cx="520" cy="320" r="70" fill="#0a6cb8" opacity="0.10"/>
+
+  <!-- test tube rack -->
+  <g transform="translate(60,110)">
+    <!-- rack -->
+    <rect x="0" y="160" width="220" height="40" rx="8" fill="#0a2540"/>
+    <rect x="0" y="160" width="220" height="10" rx="8" fill="#1a3a5a"/>
+    <!-- tube 1 -->
+    <g transform="translate(20,30)">
+      <rect x="0" y="0" width="36" height="150" rx="4" fill="#fff" stroke="#cbd8e2" stroke-width="2"/>
+      <rect x="0" y="80" width="36" height="70" rx="4" fill="url(#tube1)"/>
+      <rect x="0" y="80" width="36" height="14" fill="#fff" opacity="0.3"/>
+      <ellipse cx="18" cy="0" rx="18" ry="6" fill="#cbd8e2"/>
+    </g>
+    <!-- tube 2 -->
+    <g transform="translate(76,20)">
+      <rect x="0" y="0" width="36" height="160" rx="4" fill="#fff" stroke="#cbd8e2" stroke-width="2"/>
+      <rect x="0" y="70" width="36" height="90" rx="4" fill="url(#tube2)"/>
+      <rect x="0" y="70" width="36" height="14" fill="#fff" opacity="0.3"/>
+      <ellipse cx="18" cy="0" rx="18" ry="6" fill="#cbd8e2"/>
+    </g>
+    <!-- tube 3 -->
+    <g transform="translate(132,40)">
+      <rect x="0" y="0" width="36" height="140" rx="4" fill="#fff" stroke="#cbd8e2" stroke-width="2"/>
+      <rect x="0" y="100" width="36" height="40" rx="4" fill="url(#tube1)"/>
+      <rect x="0" y="100" width="36" height="14" fill="#fff" opacity="0.3"/>
+      <ellipse cx="18" cy="0" rx="18" ry="6" fill="#cbd8e2"/>
+    </g>
+    <!-- magnifier -->
+    <g transform="translate(190,10)">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#0a2540" stroke-width="6"/>
+      <circle cx="0" cy="0" r="24" fill="#fff" opacity="0.5"/>
+      <line x1="22" y1="22" x2="46" y2="46" stroke="#0a2540" stroke-width="8" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- arrow -->
+  <g stroke="#0a6cb8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M295 200 L325 200"/>
+    <path d="M310 188 L325 200 L310 212"/>
+  </g>
+
+  <!-- report -->
+  <g transform="translate(340,70)">
+    <rect x="6" y="8" width="220" height="270" rx="14" fill="#0a2540" opacity="0.10"/>
+    <rect x="0" y="0" width="220" height="270" rx="14" fill="#fff" stroke="#cbd8e2" stroke-width="2"/>
+    <rect x="0" y="0" width="220" height="44" rx="14" fill="#0a6cb8"/>
+    <rect x="0" y="22" width="220" height="22" fill="#0a6cb8"/>
+    <text x="20" y="29" font-family="system-ui, sans-serif" font-weight="900" font-size="14" fill="#fff">検査報告レポート</text>
+
+    <rect x="20" y="60" width="120" height="6" rx="3" fill="#0a2540" opacity="0.5"/>
+    <rect x="20" y="72" width="80" height="4" rx="2" fill="#5a7a9a" opacity="0.4"/>
+
+    <!-- result rows -->
+    <g font-family="system-ui, sans-serif">
+      <rect x="20" y="92" width="60" height="12" rx="2" fill="#0a6cb8" opacity="0.15"/>
+      <text x="22" y="102" font-size="9" fill="#0a6cb8" font-weight="700">HbA1c</text>
+      <text x="180" y="102" text-anchor="end" font-size="10" fill="#0a2540" font-weight="700">6.4%</text>
+
+      <rect x="20" y="112" width="60" height="12" rx="2" fill="#14b8a6" opacity="0.18"/>
+      <text x="22" y="122" font-size="9" fill="#14b8a6" font-weight="700">LDL</text>
+      <text x="180" y="122" text-anchor="end" font-size="10" fill="#0a2540" font-weight="700">128 mg/dL</text>
+
+      <rect x="20" y="132" width="60" height="12" rx="2" fill="#0a6cb8" opacity="0.15"/>
+      <text x="22" y="142" font-size="9" fill="#0a6cb8" font-weight="700">中性脂肪</text>
+      <text x="180" y="142" text-anchor="end" font-size="10" fill="#0a2540" font-weight="700">142 mg/dL</text>
+    </g>
+
+    <!-- chart -->
+    <g transform="translate(20,164)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="#f0f8fc"/>
+      <g stroke="#14b8a6" stroke-width="2" fill="none" stroke-linecap="round">
+        <path d="M10 60 L40 50 L70 56 L100 38 L130 42 L160 22"/>
+      </g>
+      <g fill="#0a6cb8">
+        <circle cx="40" cy="50" r="3"/>
+        <circle cx="100" cy="38" r="3"/>
+        <circle cx="160" cy="22" r="3"/>
+      </g>
+      <text x="10" y="76" font-family="system-ui, sans-serif" font-size="8" fill="#5a7a9a">6か月推移</text>
+    </g>
+
+    <!-- AI badge -->
+    <g transform="translate(140,254)">
+      <rect x="0" y="0" width="60" height="14" rx="7" fill="#14b8a6"/>
+      <text x="30" y="10" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="8" fill="#fff">AI 自動生成</text>
+    </g>
+  </g>
+</svg>

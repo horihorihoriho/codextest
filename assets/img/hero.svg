@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700"
+     role="img" aria-labelledby="t d">
+  <title id="t">医療AI支援を行う医師</title>
+  <desc id="d">タブレットを持つ医師の周りにカルテ・AIノード・波形などが浮かぶフラットイラスト。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f4fb"/>
+      <stop offset="1" stop-color="#c2e4f0"/>
+    </linearGradient>
+    <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e7eef5"/>
+    </linearGradient>
+    <linearGradient id="tablet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a6cb8"/>
+      <stop offset="1" stop-color="#14b8a6"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect width="900" height="700" fill="url(#bg)"/>
+  <circle cx="720" cy="180" r="220" fill="url(#halo)"/>
+  <circle cx="180" cy="540" r="180" fill="url(#halo)"/>
+
+  <!-- decorative dots -->
+  <g fill="#14b8a6" opacity="0.35">
+    <circle cx="120" cy="120" r="6"/>
+    <circle cx="160" cy="80" r="4"/>
+    <circle cx="780" cy="600" r="6"/>
+    <circle cx="820" cy="560" r="4"/>
+    <circle cx="100" cy="380" r="3"/>
+    <circle cx="840" cy="320" r="3"/>
+  </g>
+
+  <!-- back panel: medical cross -->
+  <g transform="translate(610,90)" opacity="0.18">
+    <rect x="0" y="0" width="200" height="200" rx="32" fill="#0a6cb8"/>
+    <rect x="80" y="40" width="40" height="120" rx="6" fill="#fff"/>
+    <rect x="40" y="80" width="120" height="40" rx="6" fill="#fff"/>
+  </g>
+
+  <!-- waveform card (floating) -->
+  <g transform="translate(540,420)">
+    <rect x="0" y="0" width="280" height="120" rx="18" fill="#fff" filter="url(#soft)" opacity="0.6"/>
+    <rect x="0" y="0" width="280" height="120" rx="18" fill="#fff"/>
+    <text x="22" y="34" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0a2540">SOAP 音声入力</text>
+    <g stroke="#14b8a6" stroke-width="3" fill="none" stroke-linecap="round">
+      <path d="M22 80 L40 80 L48 56 L60 104 L72 64 L84 96 L96 72 L108 88 L120 80 L138 80"/>
+      <path d="M150 80 L168 80 L176 60 L188 100 L200 70 L212 90 L224 76 L236 84 L248 80 L258 80"/>
+    </g>
+  </g>
+
+  <!-- person -->
+  <g transform="translate(180,180)">
+    <!-- chair shadow -->
+    <ellipse cx="180" cy="470" rx="200" ry="18" fill="#0a2540" opacity="0.08"/>
+    <!-- body / coat -->
+    <path d="M80 460 Q80 270 180 270 Q280 270 280 460 Z" fill="url(#coat)" stroke="#cbd8e2" stroke-width="2"/>
+    <!-- shirt v -->
+    <path d="M155 280 L180 320 L205 280 Z" fill="#0a6cb8"/>
+    <!-- stethoscope -->
+    <path d="M150 290 Q140 360 168 380" stroke="#1a2a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M210 290 Q220 360 192 380" stroke="#1a2a3a" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <circle cx="180" cy="392" r="14" fill="#1a2a3a"/>
+    <circle cx="180" cy="392" r="7" fill="#14b8a6"/>
+    <!-- arms -->
+    <path d="M95 320 Q60 380 90 460" stroke="#e7eef5" stroke-width="38" fill="none" stroke-linecap="round"/>
+    <path d="M265 320 Q300 380 270 460" stroke="#e7eef5" stroke-width="38" fill="none" stroke-linecap="round"/>
+    <!-- hands -->
+    <circle cx="92" cy="455" r="20" fill="#f4d2b6"/>
+    <circle cx="268" cy="455" r="20" fill="#f4d2b6"/>
+    <!-- neck -->
+    <rect x="160" y="235" width="40" height="40" fill="#f4d2b6"/>
+    <!-- head -->
+    <circle cx="180" cy="200" r="60" fill="#f4d2b6"/>
+    <!-- hair -->
+    <path d="M120 200 Q120 130 180 130 Q240 130 240 200 Q240 175 220 170 Q200 165 180 168 Q140 172 130 188 Z" fill="#2a2520"/>
+    <!-- eyes -->
+    <circle cx="160" cy="205" r="3" fill="#1a2a3a"/>
+    <circle cx="200" cy="205" r="3" fill="#1a2a3a"/>
+    <!-- smile -->
+    <path d="M165 225 Q180 235 195 225" stroke="#1a2a3a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <!-- tablet -->
+    <g transform="translate(70,400) rotate(-8)">
+      <rect x="0" y="0" width="240" height="160" rx="14" fill="url(#tablet)"/>
+      <rect x="14" y="14" width="212" height="132" rx="6" fill="#0a2540"/>
+      <!-- chart on tablet -->
+      <g stroke="#5fd8c8" stroke-width="2.5" fill="none" stroke-linecap="round">
+        <path d="M30 110 L60 80 L90 92 L120 60 L150 72 L180 50 L210 64"/>
+      </g>
+      <g fill="#14b8a6">
+        <circle cx="60" cy="80" r="3"/>
+        <circle cx="120" cy="60" r="3"/>
+        <circle cx="180" cy="50" r="3"/>
+      </g>
+      <rect x="26" y="32" width="80" height="6" rx="3" fill="#5fd8c8" opacity="0.7"/>
+      <rect x="26" y="44" width="56" height="4" rx="2" fill="#5fd8c8" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- floating chat bubble: AI -->
+  <g transform="translate(560,160)">
+    <rect x="0" y="0" width="170" height="86" rx="20" fill="#fff" filter="url(#soft)" opacity="0.6"/>
+    <rect x="0" y="0" width="170" height="86" rx="20" fill="#fff"/>
+    <path d="M30 86 L40 100 L48 86 Z" fill="#fff"/>
+    <circle cx="28" cy="32" r="14" fill="url(#tablet)"/>
+    <text x="28" y="37" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="900" fill="#fff">AI</text>
+    <rect x="52" y="22" width="100" height="8" rx="4" fill="#0a6cb8" opacity="0.7"/>
+    <rect x="52" y="36" width="80" height="6" rx="3" fill="#0a6cb8" opacity="0.4"/>
+    <rect x="52" y="48" width="90" height="6" rx="3" fill="#0a6cb8" opacity="0.4"/>
+    <rect x="52" y="60" width="60" height="6" rx="3" fill="#0a6cb8" opacity="0.4"/>
+  </g>
+
+  <!-- connecting nodes -->
+  <g stroke="#0a6cb8" stroke-width="1.5" stroke-dasharray="4 4" fill="none" opacity="0.5">
+    <path d="M460 280 Q520 280 560 240"/>
+    <path d="M460 460 Q520 460 540 460"/>
+  </g>
+</svg>
